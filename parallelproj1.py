@@ -1,5 +1,6 @@
-import concurrent.futures
+import multiprocessing
 import time
+
 A_grid = [
         [3,7,3,6],
         [9,2,0,3],
@@ -86,9 +87,8 @@ for x in B_grid:
 
 for x in range(4):
         for y in range(4):
-                with concurrent.futures.ProcessPoolExecutor() as executor:
-                        CompC(x,y)
-                        count = 0
+                CompC(x,y)
+                count = 0
 
 print("C:")
 for x in C_grid:
@@ -97,9 +97,8 @@ for x in C_grid:
         print()
 
 for x in range(4):
-        with concurrent.futures.ProcessPoolExecutor() as executor:
-                CompW(x)
-                count = 0
+        CompW(x)
+        count = 0
 
 print("W:")
 for x in W_arr:
@@ -107,9 +106,8 @@ for x in W_arr:
 print()
 
 for x in range(4):
-        with concurrent.futures.ProcessPoolExecutor() as executor:
-                CompX(x)
-                count = 0
+        CompX(x)
+        count = 0
 
 print("X:")
 for x in X_arr:
